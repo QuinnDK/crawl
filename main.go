@@ -28,7 +28,6 @@ func main() {
 		fmt.Printf("Error status code : %d", resp.StatusCode)
 
 	}
-
 	result, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
