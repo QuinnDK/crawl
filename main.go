@@ -2,6 +2,7 @@ package main
 
 import (
 	"crawl/fetcher"
+	"crawl/parse"
 )
 
 func main() {
@@ -33,7 +34,7 @@ func main() {
 
 	//fmt.Printf("%s", result)
 	result, _ := fetcher.Fetch("https://book.douban.com")
-	fetcher.ParseContent(result)
+	parse.ParseContent(result)
 
 	//正则表达式
 	//	str:="asdajidasfksaiaioaskfivsvs"
