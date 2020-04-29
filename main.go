@@ -10,7 +10,6 @@ func main() {
 		Url:       "https://book.douban.com",
 		ParseFunc: parse.ParseContent,
 	})
-
 	//result, _ := fetcher.Fetch("https://book.douban.com")
 	//parse.ParseContent(result)
 

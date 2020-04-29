@@ -11,7 +11,6 @@ func Run(seeds ...Request) {
 	for _, e := range seeds {
 		requests = append(requests, e)
 	}
-
 	for len(requests) > 0 {
 		r := requests[0]
 		requests = requests[1:]
