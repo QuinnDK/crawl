@@ -7,6 +7,7 @@ import (
 
 func ParseTag(content []byte) engine.ParseResult {
 	//<a href="/tag/哲学" class="tag">哲学</a>
+
 	//re:=regexp.MustCompile(`<a href="([^"]+)">([^</a>]+)</a>`)
 	re := regexp.MustCompile(`<a href="([^"]+)" class="tag">([^"]+)</a>`) //外边的小点 ` 并非是引号，我靠，花了好长时间
 	matches := re.FindAllSubmatch(content, -1)
@@ -20,6 +21,7 @@ func ParseTag(content []byte) engine.ParseResult {
 			ParseFunc: engine.NilParse,
 		})
 	}
+
 	return result
 	//for _, m := range matches {
 	//	fmt.Printf("url:%s\n", "https://book.douban.com"+string(m[1]))

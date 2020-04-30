@@ -46,6 +46,8 @@ func Fetch(url string) ([]byte, error) {
 	//
 	//resp,err:= client.Do(req)
 
+	//似乎我之前用的就是浏览器模式，但是豆瓣的翻爬虫机制似乎没有解决
+
 	res, err := http.NewRequest("GET", url, nil)
 
 	if err != nil {
