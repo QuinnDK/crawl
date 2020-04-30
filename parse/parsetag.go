@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-func ParseContent(content []byte) engine.ParseResult {
+func ParseTag(content []byte) engine.ParseResult {
 	//<a href="/tag/哲学" class="tag">哲学</a>
 	//re:=regexp.MustCompile(`<a href="([^"]+)">([^</a>]+)</a>`)
 	re := regexp.MustCompile(`<a href="([^"]+)" class="tag">([^"]+)</a>`) //外边的小点 ` 并非是引号，我靠，花了好长时间

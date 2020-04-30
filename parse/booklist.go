@@ -1,0 +1,29 @@
+package parse
+
+import (
+	"crawl/engine"
+	"regexp"
+)
+
+//         网址             title
+const BooklistRe = `<a href="([^"]+)" title="([^"]+)"`
+
+func ParseBookList(contents []byte) engine.ParseResult {
+
+	//fmt.Printf("%s",contents)
+
+	re := regexp.MustCompile(BooklistRe)
+	matches := re.FindAllSubmatch(contents, -1) //返回三维数组
+
+	result := engine.ParseResult{}
+
+	for _, m := range matches {
+		result.Items = append(result.Items, string(m[2]))
+		result.Requesrts = append(result.Requesrts, engine.Request{
+			Url:       string(m[1]),
+			ParseFunc: engine.NilParse,
+		})
+
+	}
+	return result
+}
