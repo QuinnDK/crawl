@@ -7,8 +7,8 @@ import (
 
 func main() {
 	engine.Run(engine.Request{
-		Url:       "https://book.douban.com/subject/34907964/",
-		ParseFunc: parse.ParseBookDetail,
+		Url:       "https://book.douban.com",
+		ParseFunc: parse.ParseTag,
 	})
 
 	//result, _ := fetcher.Fetch("https://book.douban.com")
