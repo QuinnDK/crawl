@@ -63,7 +63,6 @@ func CreateWork(in chan Request, out chan ParseResult) {
 	}()
 
 }
-
 func worker(r Request) (ParseResult, error) {
 	fmt.Printf("Fetching url:%s", r.Url)
 	body, err := fetcher.Fetch(r.Url)
