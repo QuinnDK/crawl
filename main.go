@@ -6,7 +6,11 @@ import (
 )
 
 func main() {
-	engine.Run(engine.Request{
+	e := engine.ConcurrentEngine{
+		&engine.SimpleScheduler{},
+		100,
+	}
+	e.Run(engine.Request{
 		Url:       "https://book.douban.com",
 		ParseFunc: parse.ParseTag,
 	})
