@@ -6,21 +6,6 @@ import (
 	"log"
 )
 
-type Scheduler interface {
-	Submit(Request)
-
-	configureWorkChan(chan Request)
-}
-
-type ConcurrentEngine struct {
-	Scheduler Scheduler
-	Workcount int
-}
-
-type SimpleScheduler struct {
-	workerchan chan Request
-}
-
 func (s *SimpleScheduler) Submit(r Request) {
 
 	s.workerchan <- r
