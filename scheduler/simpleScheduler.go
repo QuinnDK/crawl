@@ -2,17 +2,17 @@ package scheduler
 
 import "crawl/engine"
 
-type Scheduler interface {
-	Submit(engine.Request)
-
-	configureWorkChan(chan engine.Request)
-}
-
-type ConcurrentEngine struct {
-	Scheduler Scheduler
-	Workcount int
-}
-
 type SimpleScheduler struct {
 	workerchan chan engine.Request
+}
+
+func (s *SimpleScheduler) Submit(r engine.Request) {
+	go func() {
+		s.workerchan <- r
+	}()
+}
+
+func (s *SimpleScheduler) configureWorkChan(c chan engine.Request) {
+
+	s.workerchan = c
 }

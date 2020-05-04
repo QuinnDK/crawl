@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 )
 
 //原生方式
@@ -33,6 +34,8 @@ import (
 //
 //}
 
+var ratelimit = time.Tick(2000 * time.Millisecond)
+
 //模拟浏览器模式
 func Fetch(url string) ([]byte, error) {
 	//resp,err:=http.Get("https://book.douban.com/top250?start=0")  豆瓣已经加入的发爬虫机制，这种方法不能用了
@@ -47,6 +50,13 @@ func Fetch(url string) ([]byte, error) {
 	//resp,err:= client.Do(req)
 
 	//似乎我之前用的就是浏览器模式，但是豆瓣的翻爬虫机制似乎没有解决
+	<-ratelimit
+	//
+	//proxy:= func(_*http.Request) (*url.URL,error){
+	//	return url.Parse("http://127.0.0.1:1087")
+	//}
+	//Transport:=&http.Transport{Proxy:proxy}
+	//client:=&http.Client{Transport:Transport}
 
 	res, err := http.NewRequest("GET", url, nil)
 

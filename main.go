@@ -3,11 +3,12 @@ package main
 import (
 	"crawl/engine"
 	"crawl/parse"
+	"crawl/scheduler"
 )
 
 func main() {
 	e := engine.ConcurrentEngine{
-		&engine.SimpleScheduler{},
+		&scheduler.QueueScheluder{},
 		100,
 	}
 	e.Run(engine.Request{
