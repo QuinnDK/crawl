@@ -10,6 +10,10 @@ type QueueScheluder struct {
 
 }
 
+func (s QueueScheluder) WorkChan() chan engine.Request {
+	return make(chan engine.Request)
+}
+
 func (s QueueScheluder) Submit(r engine.Request) {
 	s.requestChan <- r
 }
