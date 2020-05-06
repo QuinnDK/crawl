@@ -2,7 +2,8 @@ package main
 
 import (
 	"crawl/engine"
-	"crawl/parse"
+	//"crawl/parse"
+	"crawl/parse/zhenai"
 	"crawl/scheduler"
 )
 
@@ -12,8 +13,8 @@ func main() {
 		100,
 	}
 	e.Run(engine.Request{
-		Url:       "https://book.douban.com",
-		ParseFunc: parse.ParseTag,
+		Url:       "http://www.zhenai.com/zhenghun",
+		ParseFunc: zhenai.ParseCity,
 	})
 
 	//result, _ := fetcher.Fetch("https://book.douban.com")

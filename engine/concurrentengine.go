@@ -2,7 +2,6 @@ package engine
 
 import (
 	"crawl/fetcher"
-	"fmt"
 	"log"
 )
 
@@ -69,7 +68,7 @@ func CreateWork(in chan Request, out chan ParseResult, s Scheduler) {
 
 }
 func worker(r Request) (ParseResult, error) {
-	fmt.Printf("Fetching url:%s\n", r.Url)
+	//fmt.Printf("Fetching url:%s\n", r.Url)
 	body, err := fetcher.Fetch(r.Url)
 	if err != nil {
 		log.Printf("Fetching Error:%s", r.Url)
