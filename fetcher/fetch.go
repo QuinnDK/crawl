@@ -34,7 +34,7 @@ import (
 //
 //}
 
-var ratelimit = time.Tick(2000 * time.Millisecond)
+var ratelimit = time.Tick(10 * time.Millisecond)
 
 //模拟浏览器模式
 func Fetch(url string) ([]byte, error) {
@@ -63,6 +63,7 @@ func Fetch(url string) ([]byte, error) {
 	if err != nil {
 		panic(err)
 	}
+	//res.Header.Set("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36")
 	res.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36")
 
 	client := &http.Client{}
