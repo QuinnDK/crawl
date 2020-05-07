@@ -62,13 +62,14 @@ import (
 //		return ""
 //	}
 //}
-
-var ageRe = regexp.MustCompile(`<div class="m-btn purple" data-v-bff6f798>([\d]+)岁</div>`)
-var marry = regexp.MustCompile(`<div class="m-btn purple" data-v-bff6f798>(已婚)</div>`)
-var constellation = regexp.MustCompile(`<div class="m-btn purple" data-v-bff6f798>(天秤座)</div>`)
-var height = regexp.MustCompile(`<div class="m-btn purple" data-v-bff6f798>([\d]+)cm</div>`)
-var weight = regexp.MustCompile(`<div class="m-btn purple" data-v-bff6f798>([\d]+)kg</div>`)
-var salary = regexp.MustCompile(`<div class="m-btn purple" data-v-bff6f798>月收入:([^<]+)</div>`)
+//<div data-v-8b1eac0c="" class="m-btn purple">([\d]+)岁</div>
+//<div data-v-8b1eac0c="" class="m-btn purple">([\d]+)cm</div>
+var ageRe = regexp.MustCompile(`<div data-v-8b1eac0c="" class="m-btn purple">([\d]+)岁</div>`)
+var marry = regexp.MustCompile(`<div data-v-8b1eac0c="" class="m-btn purple">(已婚)</div>`)
+var constellation = regexp.MustCompile(`<div data-v-8b1eac0c="" class="m-btn purple">(天秤座)</div>`)
+var height = regexp.MustCompile(`<div data-v-8b1eac0c="" class="m-btn purple">([\d]+)cm</div>`)
+var weight = regexp.MustCompile(`<div data-v-8b1eac0c="" class="m-btn purple">([\d]+)kg</div>`)
+var salary = regexp.MustCompile(`<div data-v-8b1eac0c="" class="m-btn purple">月收入:([^<]+)</div>`)
 
 var idRe = regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)
 
