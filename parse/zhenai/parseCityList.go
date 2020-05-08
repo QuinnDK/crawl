@@ -27,7 +27,6 @@ import (
 //	}
 //	return  result
 //}
-
 const cityListRe = `(http://www.zhenai.com/zhenghun/[0-9a-z]+)"[^>]*>([^<]+)</a>`
 
 func ParseCityList(contents []byte) engine.ParseResult {
