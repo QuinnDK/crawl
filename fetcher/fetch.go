@@ -34,7 +34,7 @@ import (
 //
 //}
 
-var ratelimit = time.Tick(10 * time.Millisecond)
+var ratelimit = time.Tick(200 * time.Millisecond)
 
 //模拟浏览器模式
 func Fetch(url string) ([]byte, error) {
