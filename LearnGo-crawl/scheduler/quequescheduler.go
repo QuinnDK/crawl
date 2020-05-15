@@ -1,7 +1,7 @@
 package scheduler
 
 import (
-	"crawl/engine"
+	"crawl/LearnGo-crawl/engine"
 )
 
 type QueueScheluder struct {

@@ -1,7 +1,7 @@
 package parse
 
 import (
-	"crawl/engine"
+	"crawl/LearnGo-crawl/engine"
 	"regexp"
 )
 

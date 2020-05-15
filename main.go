@@ -1,12 +1,12 @@
 package main
 
 import (
-	"crawl/engine"
-	"crawl/persist"
+	"crawl/LearnGo-crawl/engine"
+	"crawl/LearnGo-crawl/persist"
 
 	//"crawl/parse"
-	"crawl/parse/zhenai"
-	"crawl/scheduler"
+	"crawl/LearnGo-crawl/parse/zhenai"
+	"crawl/LearnGo-crawl/scheduler"
 )
 
 func main() {

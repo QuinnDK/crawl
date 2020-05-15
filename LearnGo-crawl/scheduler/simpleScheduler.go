@@ -1,6 +1,6 @@
 package scheduler
 
-import "crawl/engine"
+import "crawl/LearnGo-crawl/engine"
 
 type SimpleScheduler struct {
 	workerchan chan engine.Request

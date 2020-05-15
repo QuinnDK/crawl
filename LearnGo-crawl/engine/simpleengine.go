@@ -1,7 +1,7 @@
 package engine
 
 import (
-	"crawl/fetcher"
+	"crawl/LearnGo-crawl/fetcher"
 	"fmt"
 	"log"
 )

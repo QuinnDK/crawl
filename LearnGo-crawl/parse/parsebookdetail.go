@@ -1,8 +1,8 @@
 package parse
 
 import (
-	"crawl/engine"
-	"crawl/model"
+	"crawl/LearnGo-crawl/engine"
+	"crawl/LearnGo-crawl/model"
 	"regexp"
 	"strconv"
 )
