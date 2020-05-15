@@ -10,10 +10,14 @@ import (
 )
 
 func main() {
+	itemsave, err := persist.ItemSave()
+	if err != nil {
+		panic(err)
+	}
 	e := engine.ConcurrentEngine{
 		&scheduler.QueueScheluder{},
 		100,
-		persist.ItemSave(),
+		itemsave,
 	}
 	e.Run(engine.Request{
 		Url:       "http://www.zhenai.com/zhenghun",

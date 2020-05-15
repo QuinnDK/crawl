@@ -25,7 +25,12 @@ import (
 //
 //	return out
 //}
-func ItemSave() chan engine.Item {
+func ItemSave() (chan engine.Item, error) {
+	client, err := elastic.NewClient(
+		elastic.SetSniff(false))
+	if err != nil {
+		return nil, err
+	}
 
 	out := make(chan engine.Item)
 
@@ -35,22 +40,16 @@ func ItemSave() chan engine.Item {
 		for {
 			item := <-out
 			log.Printf("Item saver:Got$%d,%v", itemcount, item)
-			save(item)
+			save(client, item)
 			itemcount++
 		}
 
 	}()
 
-	return out
+	return out, nil
 }
 
-func save(item engine.Item) error {
-	client, err := elastic.NewClient(
-		elastic.SetSniff(false))
-
-	if err != nil {
-		panic(err)
-	}
+func save(client *elastic.Client, item engine.Item) error {
 
 	if item.Type == "" {
 		return errors.New("must supply Type")
@@ -62,7 +61,7 @@ func save(item engine.Item) error {
 		indexService.Id(item.Id)
 
 	}
-	_, err = indexService.Do(context.Background())
+	_, err := indexService.Do(context.Background())
 
 	if err != nil {
 		panic(err)
