@@ -40,7 +40,7 @@ func ItemSave() (chan engine.Item, error) {
 		for {
 			item := <-out
 			log.Printf("Item saver:Got$%d,%v", itemcount, item)
-			save(client, item)
+			Save(client, item)
 			itemcount++
 		}
 
@@ -49,7 +49,7 @@ func ItemSave() (chan engine.Item, error) {
 	return out, nil
 }
 
-func save(client *elastic.Client, item engine.Item) error {
+func Save(client *elastic.Client, item engine.Item) error {
 
 	if item.Type == "" {
 		return errors.New("must supply Type")
