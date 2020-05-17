@@ -7,7 +7,7 @@ import (
 	"net/rpc/jsonrpc"
 )
 
-func ServeRoc(host string, service interface{}) error {
+func ServeRpc(host string, service interface{}) error {
 
 	rpc.Register(service)
 	listen, err := net.Listen("tcp", host)

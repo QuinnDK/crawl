@@ -23,7 +23,7 @@ func (s simpleEngine) Run(seeds ...Request) {
 		if err != nil {
 			log.Printf("Fetching error:%s", r.Url)
 		}
-		parseResult := r.ParseFunc(body)
+		parseResult := r.Parse.Parse(body, r.Url)
 		requests = append(requests, parseResult.Requesrts...)
 
 		for _, item := range parseResult.Items {
