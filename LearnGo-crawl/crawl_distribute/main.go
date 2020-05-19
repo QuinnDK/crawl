@@ -22,6 +22,6 @@ func main() {
 
 	e.Run(engine.Request{
 		Url:   "http://www.zhenai.com/zhenghun",
-		Parse: engine.NewFuncparse(zhenai.ParseCity, "Parsecity"),
+		Parse: engine.NewFuncparse(zhenai.ParseCityList, "ParseCityList"),
 	})
 }
